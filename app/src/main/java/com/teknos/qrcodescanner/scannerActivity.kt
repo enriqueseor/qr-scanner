@@ -18,6 +18,7 @@ class ScannerActivity : AppCompatActivity(), ZXingScannerView.ResultHandler {
     private var mScannerView: ZXingScannerView? = null
     private var cameraOn = false
     private var contentFrame: ConstraintLayout? = null
+    private var singleton: Singleton? = Singleton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,10 +49,13 @@ class ScannerActivity : AppCompatActivity(), ZXingScannerView.ResultHandler {
     override fun handleResult(rawResult: Result?) {
         Log.i("AD_C11", "handleResult")
         if (rawResult != null) {
+
             val openURL = Intent(Intent.ACTION_VIEW)
             openURL.data = Uri.parse(rawResult.text)
             startActivity(openURL)
+
             val myIntent = Intent(this@ScannerActivity, MainActivity::class.java)
+            singleton?.result = rawResult.text
             this@ScannerActivity.startActivity(myIntent)
         }
         stopCamera()
