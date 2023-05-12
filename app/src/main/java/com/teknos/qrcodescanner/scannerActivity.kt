@@ -49,16 +49,12 @@ class ScannerActivity : AppCompatActivity(), ZXingScannerView.ResultHandler {
     override fun handleResult(rawResult: Result?) {
         Log.i("AD_C11", "handleResult")
         if (rawResult != null) {
-
-            val openURL = Intent(Intent.ACTION_VIEW)
-            openURL.data = Uri.parse(rawResult.text)
-            startActivity(openURL)
-
-            val myIntent = Intent(this@ScannerActivity, MainActivity::class.java)
             singleton?.result = rawResult.text
-            this@ScannerActivity.startActivity(myIntent)
+            val openURL = Intent(Intent.ACTION_VIEW, Uri.parse(rawResult.text))
+            startActivity(openURL)
         }
         stopCamera()
+        finish()
     }
 
     override fun onPause() {
