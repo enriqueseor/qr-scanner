@@ -61,16 +61,6 @@ class ScannerActivity : AppCompatActivity(), ZXingScannerView.ResultHandler {
         stopCamera()
     }
 
-    override fun onBackPressed() {
-        Log.i("AD_C11", "onBackPressed")
-        if (cameraOn) {
-            stopCamera()
-        } else {
-            // defect state
-            super.onBackPressed()
-        }
-    }
-
     override fun onPause() {
         Log.i("AD_C11", "onPause")
         if (cameraOn) stopCamera()
