@@ -57,12 +57,6 @@ class ScannerActivity : AppCompatActivity(), ZXingScannerView.ResultHandler {
         finish()
     }
 
-    override fun onPause() {
-        Log.i("AD_C11", "onPause")
-        if (cameraOn) stopCamera()
-        super.onPause()
-    }
-
     private fun captureQR() {
         Log.i("AD_C11", "captureQR")
         if (Build.VERSION.SDK_INT >= 25) {
@@ -72,5 +66,17 @@ class ScannerActivity : AppCompatActivity(), ZXingScannerView.ResultHandler {
                 requestPermissions(arrayOf(Manifest.permission.CAMERA), PERMISSION_REQUEST_CAMERA)
             }
         }
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.i("AD_C11", "onPause")
+        if (cameraOn) stopCamera()
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        Log.i("AD_C11", "onRestart")
+        if (!cameraOn) startCamera()
     }
 }
