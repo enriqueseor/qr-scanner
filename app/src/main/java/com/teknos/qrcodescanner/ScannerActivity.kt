@@ -15,7 +15,7 @@ import me.dm7.barcodescanner.zxing.ZXingScannerView
 
 class ScannerActivity : AppCompatActivity(), ZXingScannerView.ResultHandler {
 
-    private val PERMISSION_REQUEST_CAMERA: Int = 1
+    private val permissionRequestCamera: Int = 1
     private var mScannerView: ZXingScannerView? = null
     private var cameraOn = false
     private var contentFrame: ConstraintLayout? = null
@@ -27,7 +27,6 @@ class ScannerActivity : AppCompatActivity(), ZXingScannerView.ResultHandler {
 
         contentFrame = findViewById(R.id.contentFrame)
         mScannerView = ZXingScannerView(this)
-        cameraOn = false
         Log.i("AD_C11", "onCreate")
         captureQR()
     }
@@ -64,7 +63,7 @@ class ScannerActivity : AppCompatActivity(), ZXingScannerView.ResultHandler {
             if (checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
                 startCamera()
             } else {
-                requestPermissions(arrayOf(Manifest.permission.CAMERA), PERMISSION_REQUEST_CAMERA)
+                requestPermissions(arrayOf(Manifest.permission.CAMERA), permissionRequestCamera)
             }
         }
     }
