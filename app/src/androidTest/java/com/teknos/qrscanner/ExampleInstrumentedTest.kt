@@ -1,4 +1,4 @@
-package com.teknos.qrcodescanner
+package com.teknos.qrscanner
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

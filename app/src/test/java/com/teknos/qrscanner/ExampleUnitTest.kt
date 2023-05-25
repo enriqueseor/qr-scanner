@@ -1,4 +1,4 @@
-package com.teknos.qrcodescanner
+package com.teknos.qrscanner
 
 import org.junit.Test
 

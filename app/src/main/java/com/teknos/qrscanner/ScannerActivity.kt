@@ -1,4 +1,4 @@
-package com.teknos.qrcodescanner
+package com.teknos.qrscanner
 
 import android.Manifest
 import android.content.Intent
@@ -10,7 +10,8 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.zxing.Result
-import com.teknos.qrcodescanner.singleton.Singleton
+import com.teknos.qrcodescanner.R
+import com.teknos.qrscanner.singleton.Singleton
 import me.dm7.barcodescanner.zxing.ZXingScannerView
 
 class ScannerActivity : AppCompatActivity(), ZXingScannerView.ResultHandler {
