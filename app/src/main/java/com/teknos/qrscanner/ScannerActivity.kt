@@ -10,7 +10,6 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.zxing.Result
-import com.teknos.qrcodescanner.R
 import com.teknos.qrscanner.singleton.Singleton
 import me.dm7.barcodescanner.zxing.ZXingScannerView
 
