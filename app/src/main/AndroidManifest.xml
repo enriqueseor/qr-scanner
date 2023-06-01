@@ -14,12 +14,6 @@
         android:hardwareAccelerated="true">
 
         <activity
-            android:name=".ScannerActivity"
-            android:screenOrientation="portrait"
-            android:exported="false"
-            tools:ignore="LockedOrientationActivity" />
-
-        <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait"
             android:exported="true"
