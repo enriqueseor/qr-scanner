@@ -21,7 +21,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initScanner() {
-        IntentIntegrator(this).initiateScan()
+        val integrator = IntentIntegrator(this)
+        integrator.setPrompt("Escanea un código de barras o QR")
+        integrator.setTorchEnabled(false)
+        integrator.setBeepEnabled(true)
+        integrator.initiateScan()
     }
 
     @Deprecated("Deprecated in Java")
