@@ -5,20 +5,28 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.teknos.qrscanner.databinding.ActivityMainBinding
 import com.teknos.qrscanner.singleton.Singleton
 
 class MainActivity : AppCompatActivity() {
 
     private var singleton: Singleton? = Singleton
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.btnScan.setOnClickListener { initScanner() }
 
         val tvResult: TextView = findViewById(R.id.tvResult)
         tvResult.text = singleton?.result
 
         scanActivity()
+    }
+
+    private fun initScanner() {
     }
 
     private fun scanActivity() {
