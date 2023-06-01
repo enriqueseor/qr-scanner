@@ -1,7 +1,9 @@
 package com.teknos.qrscanner
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.util.Patterns
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -36,10 +38,24 @@ class MainActivity : AppCompatActivity() {
             if(result.contents == null) {
                 Toast.makeText(this, "ERROR", Toast.LENGTH_SHORT).show()
             }else{
-                tvResult.text = result.contents
+                val contents = result.contents
+                if (isUrl(contents)) {
+                    openBrowser(contents)
+                } else {
+                    tvResult.text = contents
+                }
             }
         }else {
             super.onActivityResult(requestCode, resultCode, data)
         }
+    }
+
+    private fun isUrl(text: String): Boolean {
+        return Patterns.WEB_URL.matcher(text).matches()
+    }
+
+    private fun openBrowser(url: String) {
+        val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+        startActivity(browserIntent)
     }
 }
