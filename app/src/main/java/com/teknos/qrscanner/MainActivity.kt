@@ -33,19 +33,16 @@ class MainActivity : AppCompatActivity() {
     @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         val tvResult: TextView = findViewById(R.id.tvResult)
-        val result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
-        if(result != null){
-            if(result.contents == null) {
-                Toast.makeText(this, "ERROR", Toast.LENGTH_SHORT).show()
-            }else{
-                val contents = result.contents
+        if (requestCode == IntentIntegrator.REQUEST_CODE && resultCode == RESULT_OK) {
+            val result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
+            result?.contents?.let { contents ->
                 if (isUrl(contents)) {
                     openBrowser(contents)
                 } else {
                     tvResult.text = contents
                 }
-            }
-        }else {
+            } ?: Toast.makeText(this, "ERROR", Toast.LENGTH_SHORT).show()
+        } else {
             super.onActivityResult(requestCode, resultCode, data)
         }
     }
