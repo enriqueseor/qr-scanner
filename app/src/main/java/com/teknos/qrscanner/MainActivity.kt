@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
                 } else {
                     tvResult.text = contents
                 }
-            } ?: Toast.makeText(this, "NADA ESCANEADO", Toast.LENGTH_SHORT).show()
+            } ?: Toast.makeText(this, "ERROR AL ESCANEAR", Toast.LENGTH_SHORT).show()
         } else {
             super.onActivityResult(requestCode, resultCode, data)
         }
