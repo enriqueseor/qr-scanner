@@ -4,7 +4,7 @@ Kotlin QR Scanner is a simple QR code scanning application for [Android](https:/
 originally written in Java and later migrated to Kotlin. 
 This app allows users to scan QR codes using their device's camera and extract information from them.
 
-![MainActivity](https://github.com/enriqueseor/qr-scanner/assets/101838134/846b5dcd-5d91-431d-a863-5271509e5dc4)
+![MainActivity](images/MainActivity.png)
 
 ## Table of Contents
 
@@ -21,7 +21,7 @@ This app allows users to scan QR codes using their device's camera and extract i
 - Minimalistic user interface for ease of use. 
 - Migrated from Java to Kotlin for improved maintainability and readability.
 
-![ScannerActivity](https://github.com/enriqueseor/qr-scanner/assets/101838134/cea17dec-0391-472d-bfb5-540f0a093499)
+![ScannerActivity](images/ScannerActivity.png)
 
 ## Getting Started
 
