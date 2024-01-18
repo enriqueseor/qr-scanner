@@ -10,9 +10,7 @@ This app allows users to scan QR codes using their device's camera and extract i
 
 1. [Features](#features)
 2. [Getting Started](#getting-started)
-3. [Usage](#usage)
-4. [Contributing](#contributing)
-5. [License](#license)
+3. [License](#license)
 
 ## Features
 
